@@ -1,0 +1,19 @@
+@import "base/variables";
+
+// Foundation
+@import "base/foundation-settings";
+@import "foundation";
+@include foundation-everything;
+@include foundation-grid;
+
+// Components
+
+
+/* This typographic stack should work well across most platforms */
+$system-fonts: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+                "Helvetica Neue", sans-serif;
+
+body, h1, h2, h3, h4, h5, h6, p {
+  font-family: $system-fonts;
+}
