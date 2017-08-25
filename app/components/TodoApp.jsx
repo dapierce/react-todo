@@ -1,10 +1,12 @@
 var React = require('react');
 
 var TodoList = require('TodoList');
+var AddTodo = require('AddTodo');
 
 class TodoApp extends React.Component {
   constructor (props) {
     super(props);
+    this.handleAddTodo = this.handleAddTodo.bind(this);
     this.state = {
       todos: [
         {
@@ -23,6 +25,12 @@ class TodoApp extends React.Component {
       ]
     }
   }
+  handleAddTodo (todoText) {
+    var {todos} = this.state;
+    todos.push({id: todos.length + 1, text: todoText});
+    this.setState({todos: todos});
+    console.log(todos[todos.length - 1]);
+  }
   render () {
     var {todos} = this.state;
 
@@ -30,6 +38,7 @@ class TodoApp extends React.Component {
       <div>
         <h1>Todo</h1>
         <TodoList todos={todos}/>
+        <AddTodo onFormSumbit={this.handleAddTodo}/>
       </div>
     )
   }
