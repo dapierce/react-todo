@@ -38,7 +38,7 @@ class TodoApp extends React.Component {
       <div>
         <h1>Todo</h1>
         <TodoList todos={todos}/>
-        <AddTodo onFormSumbit={this.handleAddTodo}/>
+        <AddTodo onAddTodo={this.handleAddTodo}/>
       </div>
     )
   }

@@ -16,17 +16,19 @@ class AddTodo extends React.Component {
     var addTodo = this.state.todo;
     
     if(addTodo.length > 0) {
-      this.props.onFormSumbit(addTodo);
+      this.props.onAddTodo(addTodo);
       this.setState({todo: ''});  
       this.refs.todoText.value = '';
+    } else {
+      this.refs.todoText.focus();
     }
   }
   render () {
     return (
       <div>
-        <form className="add-todo-form" onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit}>
           <input type="text" ref="todoText" onChange={this.handleChange} placeholder="What needs to be done?"/>
-          <button className="button">Add Todo</button>
+          <button className="button expanded">Add Todo</button>
         </form>
       </div>
     )
