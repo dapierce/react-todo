@@ -1,4 +1,5 @@
 var React = require('react');
+var uuid = require('uuid');
 
 var TodoSearch = require('TodoSearch');
 var TodoList = require('TodoList');
@@ -15,16 +16,16 @@ class TodoApp extends React.Component {
       showCompleted: false,
       todos: [
         {
-          id: 1,
+          id: uuid(),
           text: 'Feed the cat'
         }, {
-          id: 2,
+          id: uuid(),
           text: 'Clean the kitchen'
         }, {
-          id: 3,
+          id: uuid(),
           text: 'Cook something!'
         }, {
-          id: 4,
+          id: uuid(),
           text: 'Make React Todo app'
         }
       ]
@@ -38,9 +39,8 @@ class TodoApp extends React.Component {
   }
   handleAddTodo (todoText) {
     var {todos} = this.state;
-    todos.push({id: todos.length + 1, text: todoText});
+    todos.push({id: uuid(), text: todoText});
     this.setState({todos: todos});
-    console.log(todos[todos.length - 1]);
   }
   render () {
     var {todos} = this.state;
