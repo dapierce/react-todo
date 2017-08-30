@@ -51,4 +51,45 @@ describe('TodoAPI', () => {
       });
     });
   });
+
+  describe('filterTodos', () => {
+    var todos = [{
+      id: 1,
+      text: 'first test',
+      isComplete: true
+    },{
+      id: 2,
+      text: 'second test',
+      isComplete: false
+    },{
+      id: 3,
+      text: 'third test',
+      isComplete: true
+    }];
+
+    it('should show all todos when Show Completed is true', () => {
+      var filteredTodos = TodoAPI.filterTodos(todos, true, '');
+      expect(filteredTodos.length).toBe(todos.length);
+    });
+
+    it('should hide completed todos when Show Complete is false', () => {
+      var filteredTodos = TodoAPI.filterTodos(todos, false, '');
+      expect(filteredTodos.length).toBe(1);
+    });
+
+    it('should sort by isComplete status', () => {
+      var filteredTodos = TodoAPI.filterTodos(todos, true, '');
+      expect(filteredTodos[0].isComplete).toBe(false);
+    });
+
+    it('should return all todos when search input is empty', () => {
+      var filteredTodos = TodoAPI.filterTodos(todos, true, '');
+      expect(filteredTodos.length).toBe(todos.length);
+    });
+
+    it('should only return todos that match search text', () => {
+      var filteredTodos = TodoAPI.filterTodos(todos, true, todos[2].text);
+      expect(filteredTodos[0]).toEqual(todos[2]);
+    });
+  });
 });
