@@ -1,5 +1,6 @@
 var React = require('react');
 var uuid = require('uuid');
+var moment = require('moment');
 
 var TodoAPI = require('TodoAPI');
 var TodoSearch = require('TodoSearch');
@@ -26,6 +27,7 @@ class TodoApp extends React.Component {
     var updateTodos = this.state.todos.map((todo) => {
       if(todo.id === id) {
         todo.isComplete = !todo.isComplete;
+        todo.completedAt = todo.isComplete ? moment().unix() : undefined;
       }
       return todo;
     });
@@ -45,7 +47,9 @@ class TodoApp extends React.Component {
         {
           id: uuid(),
           text: todoText,
-          isComplete: false
+          createdAt: moment().unix(),          
+          isComplete: false,
+          completedAt: undefined
         }
       ]      
     });
