@@ -49,5 +49,20 @@ module.exports = {
     });
 
     return filteredTodos;
+  },
+
+  getShowCompleted: function () {
+    var stringShowCompleted = localStorage.getItem('showCompleted');
+    if(stringShowCompleted === 'true') {
+      return true;
+    } else {
+      return false;
+    }
+  },
+
+  setShowCompleted: function (showCompleted) {
+    if(showCompleted === true || showCompleted === false) {
+      localStorage.setItem('showCompleted', showCompleted);
+    }
   }
 };

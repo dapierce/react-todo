@@ -32,6 +32,26 @@ describe('TodoAPI', () => {
     });
   });
 
+  describe('getShowCompleted', () => {
+    it('should return false if show completed value is not valid/does not exist', () => {
+      expect(TodoAPI.getShowCompleted()).toEqual(false);
+    });
+  
+    it('should return true if show completed value is true', () => {
+      var showCompleted = true;
+      localStorage.setItem('showCompleted', showCompleted);
+      expect(TodoAPI.getShowCompleted()).toEqual(true);
+    });  
+  });
+
+  describe('setShowCompleted', () => {
+    it('should update show completed user preference', () => {      
+      var showCompleted = true;
+      localStorage.setItem('showCompleted', showCompleted);
+      expect(localStorage.getItem('showCompleted')).toEqual('true');
+    });  
+  });
+
   describe('getTodos', () => {
     it('should return empty array if no localStorage data exists', () => {
       expect(TodoAPI.getTodos()).toEqual([]);

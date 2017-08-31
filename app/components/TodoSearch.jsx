@@ -16,14 +16,25 @@ class TodoSearch extends React.Component {
     this.props.onShowComplete(showCompleted);    
   }
   render() {
+    var {checkedShowCompleted} = this.props;
+    var renderCheckboxShowCompleted = () => {
+      if(checkedShowCompleted) {
+        return (
+          <input type="checkbox" ref="showCompleted" onChange={this.handleShowCompleted} checked/>
+        )} else {
+          return (
+            <input type="checkbox" ref="showCompleted" onChange={this.handleShowCompleted}/>
+          )
+      }
+    }
     return (
-      <div>
+      <div className="container__header">
         <div>
           <input type="search" ref="searchText" placeholder="Search todos" onChange={this.handleSearch}/>
         </div>
         <div>
           <label>
-            <input type="checkbox" ref="showCompleted" onChange={this.handleShowCompleted}/>
+            {renderCheckboxShowCompleted()}
             Show Completed
           </label>
         </div>

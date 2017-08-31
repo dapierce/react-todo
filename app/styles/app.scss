@@ -7,7 +7,9 @@
 @include foundation-grid;
 
 // Components
-
+@import "components/page-title";
+@import "components/container";
+@import "components/todoItem";
 
 /* This typographic stack should work well across most platforms */
 $system-fonts: -apple-system, BlinkMacSystemFont, "Segoe UI",

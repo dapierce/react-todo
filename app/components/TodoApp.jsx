@@ -16,12 +16,13 @@ class TodoApp extends React.Component {
     this.handleToggle = this.handleToggle.bind(this);
     this.state = {
       search: '',
-      showCompleted: false,
+      showCompleted: TodoAPI.getShowCompleted(),
       todos: TodoAPI.getTodos()
     }
   }
   componentDidUpdate () {
     TodoAPI.setTodos(this.state.todos);
+    TodoAPI.setShowCompleted(this.state.showCompleted);
   }
   handleToggle (id) {
     var updateTodos = this.state.todos.map((todo) => {
@@ -38,7 +39,7 @@ class TodoApp extends React.Component {
     this.setState({search: search})
   }
   handleShowComplete (showCompleted) {
-    this.setState({showCompleted: showCompleted})    
+    this.setState({showCompleted: showCompleted})
   }
   handleAddTodo (todoText) {
     this.setState({
@@ -60,10 +61,16 @@ class TodoApp extends React.Component {
 
     return (
       <div>
-        <h1>Todo</h1>
-        <TodoSearch onSearch={this.handleSearch} onShowComplete={this.handleShowComplete}/>
-        <TodoList todos={filteredTodos} onToggle={this.handleToggle}/>
-        <AddTodo onAddTodo={this.handleAddTodo}/>
+        <div className="row">
+          <div className="column small-centered small-11 medium 6 large-5">
+          <h1 className="page-title">Todo</h1>
+            <div className="container">
+              <TodoSearch onSearch={this.handleSearch} onShowComplete={this.handleShowComplete} checkedShowCompleted={showCompleted}/>
+              <TodoList todos={filteredTodos} onToggle={this.handleToggle} />
+              <AddTodo onAddTodo={this.handleAddTodo} />
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
