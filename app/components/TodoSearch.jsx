@@ -28,17 +28,15 @@ class TodoSearch extends React.Component {
       }
     }
     return (
-      <div className="container__header">
-        <div>
+      <ul className="menu container__header">
+        <li>
           <input type="search" ref="searchText" placeholder="Search todos" onChange={this.handleSearch}/>
-        </div>
-        <div>
-          <label>
-            {renderCheckboxShowCompleted()}
-            Show Completed
-          </label>
-        </div>
-      </div>
+          </li>
+          <li><label>
+          {renderCheckboxShowCompleted()}
+          Show Completed
+          </label></li>
+      </ul>
     )
   }
 }

@@ -15,8 +15,7 @@
     "express": "^4.15.2",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "react-router": "^2.0.0"
+    "react-router": "^4.2.0"
   },
   "engines": {
     "node": "6.10.x"
@@ -49,6 +48,7 @@
     "mocha": "^3.5.0",
     "moment": "^2.18.1",
     "node-sass": "^4.5.3",
+    "react-dom": "^15.6.1",
     "sass-loader": "^6.0.6",
     "script-loader": "^0.6.1",
     "style-loader": "^0.13.2",
