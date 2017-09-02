@@ -21,6 +21,7 @@ body, h1, h2, h3, h4, h5, h6, p {
 }
 
 .top-bar {
+  background-color: $top-bar-color;
   position: fixed;
   top: 0%;
   width: 100%;
@@ -36,4 +37,9 @@ body, h1, h2, h3, h4, h5, h6, p {
   bottom: 0%;
   width: 100%;
   background-color: #ffffff;
+}
+
+.button.add-button {
+  border-radius: .4rem;
+  background-color: $bright-blue;
 }
