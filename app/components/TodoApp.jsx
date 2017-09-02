@@ -62,7 +62,7 @@ class TodoApp extends React.Component {
     return (
       <div class="root">
         <div className="top-bar">
-          <h1 className="page-title">Todo</h1>
+          <h1 className="page-title hide-for-small-only">Todo</h1>
           <TodoSearch onSearch={this.handleSearch} onShowComplete={this.handleShowComplete} checkedShowCompleted={showCompleted} />
         </div>
         <div className="row main">
