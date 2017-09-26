@@ -36,10 +36,21 @@ body, h1, h2, h3, h4, h5, h6, p {
   position: fixed;
   bottom: 0%;
   width: 100%;
-  background-color: #ffffff;
+  background-color: $light-grey;
+  border-top: 1px solid $light-grey-border;
 }
 
 .button.add-button {
   border-radius: .4rem;
-  background-color: $bright-blue;
+  background: $bright-blue;
+  text-shadow: 0 1px 4px $shaded-blue;
+  transition: background .1s ease;
+}
+
+.button.add-button:hover, .button.add-button:focus {
+  background: lighten($bright-blue, 10%);
+}
+
+.button.add-button:active {
+  background: darken($bright-blue, 10%);
 }
